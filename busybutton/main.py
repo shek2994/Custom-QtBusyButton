@@ -9,7 +9,32 @@ class WorkerThread(QThread):
         # Simulate some long-running task
         self.sleep(3)
         self.finished.emit()
+json_stylesheet = """
+ QPushButton {
+    color: #333;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    border: 2px solid #555;
+    border-radius: 30px;
+    border-style: outset;
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 #fff, stop: 1 #888
+        );
+    padding: 5px;
+    background:aqua;
 
+    }
+    QPushButton:hover{
+    color:white;
+    background: qradialgradient(
+        cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+        radius: 1.35, stop: 0 #fff, stop: 1 #bbb
+        );
+    }
+    """
 class BusyButton(QPushButton):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -19,6 +44,7 @@ class BusyButton(QPushButton):
         self.movie = QMovie('wait.gif')  # Replace 'busy.gif' with your animated GIF path
         self.movie.setScaledSize(self.size())
         self.movie.frameChanged.connect(self.updateButtonIcon)
+        self.setStyleSheet(json_stylesheet)
 
     def updateButtonIcon(self, frame):
         pixmap = self.movie.currentPixmap()
