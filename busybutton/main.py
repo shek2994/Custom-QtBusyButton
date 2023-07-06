@@ -47,20 +47,20 @@ class BusyButton(QPushButton):
 def start():
     print("enter")
 
-def main()
-    app = QApplication(sys.argv)
+# def main():
+#     app = QApplication(sys.argv)
 
-    widget = QWidget()
-    layout = QVBoxLayout(widget)
+#     widget = QWidget()
+#     layout = QVBoxLayout(widget)
 
-    busyButton = BusyButton('Busy Button')
-    layout.addWidget(busyButton)
-    busyButton.clicked.connect(start)
+#     busyButton = BusyButton('Busy Button')
+#     layout.addWidget(busyButton)
+#     busyButton.clicked.connect(start)
 
-    widget.show()
+#     widget.show()
 
-    sys.exit(app.exec_())
+#     sys.exit(app.exec_())
 
-if __name__ == '__main__':
-    import sys
-    main()
+# if __name__ == '__main__':
+#     import sys
+#     main()
